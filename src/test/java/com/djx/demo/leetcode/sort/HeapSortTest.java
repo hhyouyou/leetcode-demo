@@ -11,7 +11,7 @@ public class HeapSortTest {
         int k = 0;
         System.out.println(findKth(arr, k));
 
-     //   testMinHeapify();
+        //   testMinHeapify();
 
     }
     // 题目 ： 查找数组 arr 中第 k 小的奇数，如果不存在则返回 0. (arr [i] > 0 (i>=0))
