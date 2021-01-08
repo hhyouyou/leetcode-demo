@@ -1,5 +1,7 @@
 package com.djx.demo.leetcode.str;
 
+import org.springframework.cache.annotation.CacheEvict;
+
 /**
  * 字符串转换整数 (atoi)
  * 请你来实现一个atoi函数，使其能将字符串转换成整数。
@@ -23,9 +25,12 @@ package com.djx.demo.leetcode.str;
 public class MyAtoi {
 
     public static void main(String[] args) {
-        int num = myAtoi(" 123");
 
-        test();
+        int num = myAtoi("-91283472332");
+        System.out.println(num);
+
+        Integer.parseInt("num");
+
     }
 
     public static void test() {
@@ -36,39 +41,36 @@ public class MyAtoi {
     }
 
     public static int myAtoi(String s) {
-
+        if(s.isEmpty()){
+            return 0;
+        }
         int negativeFlag = 1;
 
-        char[] resultChar = new char[s.length()];
-        int j = 0;
+        StringBuilder resultStrBuilder = new StringBuilder();
 
-        for (int i = 0; i < s.length(); i++) {
-            char chNow = s.charAt(i);
-            if (i != s.length() - 1) {
-                char chNext = s.charAt(i + 1);
-                if (chNow == '-' && isNumber(chNext)) {
-                    negativeFlag = -1;
-                }
-                if (!isNumber(chNext)) {
-                    break;
-                }
-            }
-            if (isNumber(chNow)) {
-                resultChar[j++] = chNow;
-            }
+        int i = 0;
+        s = s.trim();
+        if (s.charAt(0) == '-') {
+            negativeFlag = -1;
+            i = 1;
+        }else if (s.charAt(0) == '+') {
+            i = 1;
         }
-        int resultNum = 0;
-        for (int i = resultChar.length - 1; i >= 0; i--) {
-            int newResult = resultNum + (resultChar[i] - 48) * negativeFlag;
+        while (i < s.length() && isNumber(s.charAt(i))) {
+            resultStrBuilder.append(s.charAt(i++));
+        }
 
-            if(i > 9 && (resultNum ^ newResult) >> 31 < 0){
-                return negativeFlag > 0 ? Integer.MAX_VALUE :Integer.MIN_VALUE;
+        int resultNum = 0;
+        String resultStr = resultStrBuilder.toString();
+        for (int j = resultStr.length() - 1; j >= 0; j--) {
+            int newResult = resultNum + (resultStr.charAt(j) - 48) * negativeFlag;
+            if (resultNum != 0 && (resultNum ^ newResult) >> 31 < 0) {
+                return negativeFlag > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             }
             resultNum = newResult;
             negativeFlag *= 10;
         }
-
-        return 0;
+        return resultNum;
     }
 
     public static boolean isNumber(char ch) {
@@ -76,7 +78,6 @@ public class MyAtoi {
     }
 
     public static int isCrossBorder(int oldNumber, int newNumber) {
-
         return (oldNumber ^ newNumber) >> 31;
     }
 }
