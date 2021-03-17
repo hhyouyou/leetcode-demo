@@ -1,11 +1,5 @@
 package com.djx.demo.leetcode.util;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 /**
  * @author dong jing xi
  * @date 2020/12/29 0:45
