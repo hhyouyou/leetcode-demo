@@ -9,22 +9,20 @@ import java.util.Objects;
  **/
 public class MyStack<E> {
 
-    private static final Integer DEFAULT_MAX_SIZE = 4;
+    private static final int DEFAULT_MAX_SIZE = 4;
 
     public MyStack() {
-        this.maxSize = DEFAULT_MAX_SIZE;
-        this.size = 0;
+        this(DEFAULT_MAX_SIZE);
     }
 
-    public MyStack(Integer size) {
+    public MyStack(int size) {
         this.maxSize = size;
         this.size = 0;
     }
 
     private Object[] items;
-    private Integer maxSize;
-    private Integer size;
-
+    private int maxSize;
+    private int size;
 
     public E push(E element) {
 
