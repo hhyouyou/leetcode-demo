@@ -1,6 +1,6 @@
 package com.djx.demo.leetcode.sort;
 
-import java.util.Arrays;
+import com.djx.demo.leetcode.util.Utils;
 
 /**
  * 堆排序
@@ -10,11 +10,15 @@ import java.util.Arrays;
  **/
 public class HeapSort {
 
-
     public static void main(String[] args) {
+//        int[] arrays = {9, 2, 5, 1, 3, 2, 9, 5, 2, 1, 8};
+//        heapSort(arrays);
+//        System.out.println(Arrays.toString(arrays));
 
-        int[] arrays = {9, 2, 5, 1, 3, 2, 9, 5, 2, 1, 8};
+        Utils.testSort(1000, HeapSort::heapSort);
+    }
 
+    public static void heapSort(int[] arrays) {
         // 1.建堆
         buildMaxHeap(arrays);
         int length = arrays.length;
@@ -24,10 +28,8 @@ public class HeapSort {
             swap(arrays, 0, i);
             maxHeapify(arrays, 0, i);
         }
-
-        System.out.println(Arrays.toString(arrays));
-
     }
+
 
     // 建堆，从中间开始维护最大堆
     public static void buildMaxHeap(int[] arrays) {
