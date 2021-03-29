@@ -1,6 +1,5 @@
 package com.djx.demo.leetcode.tree;
 
-import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
