@@ -31,14 +31,20 @@ public class HeapSort {
     }
 
 
-    // 建堆，从中间开始维护最大堆
+    /**
+     * 建堆，从中间开始维护最大堆
+     *
+     * @param arrays
+     */
     public static void buildMaxHeap(int[] arrays) {
         for (int i = (arrays.length / 2) + 1; i >= 0; i--) {
             maxHeapify(arrays, i, arrays.length);
         }
     }
 
-    // 维护最大堆
+    /**
+     * 维护最大堆
+     */
     public static void maxHeapify(int[] array, int i, int length) {
 
         // 左右子节点在数组中下标

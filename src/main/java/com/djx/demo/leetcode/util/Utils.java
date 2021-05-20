@@ -18,6 +18,16 @@ public class Utils {
         return array;
     }
 
+    public static void testSort(int[] param, Consumer<int[]> sortConsumer) {
+
+        long start = System.currentTimeMillis();
+
+        sortConsumer.accept(param);
+
+        long time = System.currentTimeMillis() - start;
+
+        System.out.println("耗时 :" + time);
+    }
 
     public static void testSort(int size, Consumer<int[]> sortConsumer) {
         int[] randomArray = getRandomArray(size);
