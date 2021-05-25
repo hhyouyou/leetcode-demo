@@ -53,7 +53,7 @@ public class BubbleSort {
     public static void bubble3(int[] array) {
         int tail = array.length;
 
-        for (int i = 0; tail > 0; i++) {
+        while (tail > 0) {
             int k = tail;
             tail = 0;
             for (int j = 1; j < k; j++) {

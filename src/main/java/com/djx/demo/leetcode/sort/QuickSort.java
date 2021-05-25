@@ -1,6 +1,6 @@
 package com.djx.demo.leetcode.sort;
 
-import java.util.Random;
+import com.djx.demo.leetcode.util.Utils;
 
 /**
  * @author dong jing xi
@@ -10,20 +10,18 @@ public class QuickSort {
 
 
     public static void main(String[] args) {
-        int[] array = new int[1000000];
-        for (int i = 0; i < 1000000; i++) {
-            array[i] = new Random().nextInt(1000000);
-        }
-//        System.out.println(Arrays.toString(array));
-        long start = System.currentTimeMillis();
+        Utils.testSort(100000, QuickSort::testTime);
+        Utils.testSort(100000, QuickSort::testTime);
+        Utils.testSort(100000, QuickSort::testTime);
+        Utils.testSort(100000, QuickSort::testTime);
+        Utils.testSort(100000, QuickSort::testTime);
+        Utils.testSort(100000, QuickSort::testTime);
+        Utils.testSort(100000, QuickSort::testTime);
 
+    }
+
+    public static void testTime(int[] array) {
         quickSort(array, 0, array.length - 1);
-//        test(array);
-        long time = System.currentTimeMillis() - start;
-        System.out.println("end :" + time);
-//        System.out.println(Arrays.toString(array));
-
-
     }
 
     public static void test(int[] array) {

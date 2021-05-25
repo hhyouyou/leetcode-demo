@@ -38,7 +38,7 @@ public class Utils {
 
         long time = System.currentTimeMillis() - start;
 
-        System.out.println("数组大小:" + size + ", 耗时 :" + time);
+        System.out.println("数组大小:" + size + ", 耗时 :" + time + "ms");
     }
 
 

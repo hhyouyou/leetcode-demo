@@ -13,11 +13,14 @@ import java.util.Arrays;
 public class MergeSort {
 
     public static void main(String[] args) {
-//        int[] arrays = {9, 2, 5, 1, 3, 2, 9, 5, 2, 1, 8};
-//        mergeSort(arrays, 0, arrays.length - 1);
-//        System.out.println(Arrays.toString(arrays));
 
-        Utils.testSort(1000, MergeSort::mergeSort);
+        Utils.testSort(100000, MergeSort::mergeSort);
+        Utils.testSort(100000, MergeSort::mergeSort);
+        Utils.testSort(100000, MergeSort::mergeSort);
+        Utils.testSort(100000, MergeSort::mergeSort);
+        Utils.testSort(100000, MergeSort::mergeSort);
+        Utils.testSort(100000, MergeSort::mergeSort);
+        Utils.testSort(100000, MergeSort::mergeSort);
     }
 
     public static void mergeSort(int[] array) {

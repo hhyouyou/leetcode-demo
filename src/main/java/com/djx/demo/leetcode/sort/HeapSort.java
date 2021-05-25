@@ -11,11 +11,13 @@ import com.djx.demo.leetcode.util.Utils;
 public class HeapSort {
 
     public static void main(String[] args) {
-//        int[] arrays = {9, 2, 5, 1, 3, 2, 9, 5, 2, 1, 8};
-//        heapSort(arrays);
-//        System.out.println(Arrays.toString(arrays));
 
-        Utils.testSort(1000, HeapSort::heapSort);
+        Utils.testSort(100000, HeapSort::heapSort);
+        Utils.testSort(100000, HeapSort::heapSort);
+        Utils.testSort(100000, HeapSort::heapSort);
+        Utils.testSort(100000, HeapSort::heapSort);
+        Utils.testSort(100000, HeapSort::heapSort);
+        Utils.testSort(100000, HeapSort::heapSort);
     }
 
     public static void heapSort(int[] arrays) {

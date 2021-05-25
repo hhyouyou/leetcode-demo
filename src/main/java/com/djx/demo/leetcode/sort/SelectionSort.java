@@ -1,6 +1,6 @@
 package com.djx.demo.leetcode.sort;
 
-import java.util.Random;
+import com.djx.demo.leetcode.util.Utils;
 
 /**
  * @author djx
@@ -10,17 +10,12 @@ public class SelectionSort {
 
     public static void main(String[] args) {
 
-        int[] array = new int[100000];
-        for (int i = 0; i < 100000; i++) {
-            array[i] = new Random().nextInt(100000);
-        }
-//        System.out.println(Arrays.toString(array));
-        long start = System.currentTimeMillis();
-        selectionSort(array);
-        long end = System.currentTimeMillis();
-        System.out.println("time : " + (end - start));
-//        System.out.println(Arrays.toString(array));
-
+        Utils.testSort(100000, SelectionSort::selectionSort);
+        Utils.testSort(100000, SelectionSort::selectionSort);
+        Utils.testSort(100000, SelectionSort::selectionSort);
+        Utils.testSort(100000, SelectionSort::selectionSort);
+        Utils.testSort(100000, SelectionSort::selectionSort);
+        Utils.testSort(100000, SelectionSort::selectionSort);
     }
 
     public static void selectionSort(int[] array) {
