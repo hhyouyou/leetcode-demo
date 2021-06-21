@@ -1,8 +1,5 @@
 package com.djx.demo.leetcode.str;
 
-import org.apache.commons.collections.CollectionUtils;
-
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Objects;
@@ -14,34 +11,31 @@ import java.util.Objects;
 public class IsAnagram {
 
     public static void main(String[] args) {
-        boolean anagram = isAnagram("hello", "hlloe");
+        boolean anagram = isAnagram("hello", "hlloe3");
         System.out.println(anagram);
     }
 
 
     public static boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
 
         HashMap<Byte, Integer> sMap = stringToMap(s);
-        HashMap<Byte, Integer> tMap = stringToMap(t);
 
-        if (sMap.size() != tMap.size()) {
-            return false;
-        }
 
-        if (!CollectionUtils.isEqualCollection(sMap.keySet(), tMap.keySet())) {
-            return false;
-        }
+        byte[] bytes = t.getBytes(StandardCharsets.UTF_8);
 
-        for (Byte aByte : sMap.keySet()) {
+        for (byte aByte : bytes) {
             Integer sCount = sMap.get(aByte);
-            Integer tCount = tMap.get(aByte);
-            if (Objects.isNull(tCount)){
+            if (Objects.isNull(sCount)) {
                 return false;
             }
+            if (--sCount < 0) {
+                return false;
+            }
+            sMap.put(aByte,sCount);
 
-            if (!sCount.equals(tCount)) {
-                return false;
-            }
         }
 
         return true;
