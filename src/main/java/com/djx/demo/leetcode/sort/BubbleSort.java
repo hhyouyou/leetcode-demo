@@ -14,6 +14,13 @@ public class BubbleSort {
 //        System.out.println(Arrays.toString(array));
 
         Utils.testSort(10000, BubbleSort::bubble3);
+        Utils.testSort(10000, BubbleSort::bubble3);
+        Utils.testSort(10000, BubbleSort::bubble3);
+        Utils.testSort(10000, BubbleSort::bubble3);
+        Utils.testSort(10000, BubbleSort::bubble3);
+        Utils.testSort(10000, BubbleSort::bubble3);
+        Utils.testSort(10000, BubbleSort::bubble3);
+        Utils.testSort(10000, BubbleSort::bubble3);
 
     }
 

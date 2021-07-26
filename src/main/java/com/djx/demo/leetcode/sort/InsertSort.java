@@ -1,7 +1,6 @@
 package com.djx.demo.leetcode.sort;
 
-import java.util.Arrays;
-import java.util.Random;
+import com.djx.demo.leetcode.util.Utils;
 
 /**
  * @author djx
@@ -10,16 +9,14 @@ import java.util.Random;
 public class InsertSort {
 
     public static void main(String[] args) {
-        int[] array = new int[10000];
-        for (int i = 0; i < 10000; i++) {
-            array[i] = new Random().nextInt(100000);
-        }
-        System.out.println(Arrays.toString(array));
-        long start = System.currentTimeMillis();
-        insertSort(array);
-        long end = System.currentTimeMillis();
-        System.out.println("time : " + (end - start));
-        System.out.println(Arrays.toString(array));
+
+        Utils.testSort(100000, InsertSort::insertSort);
+        Utils.testSort(100000, InsertSort::insertSort);
+        Utils.testSort(100000, InsertSort::insertSort);
+        Utils.testSort(100000, InsertSort::insertSort);
+        Utils.testSort(100000, InsertSort::insertSort);
+        Utils.testSort(100000, InsertSort::insertSort);
+        Utils.testSort(100000, InsertSort::insertSort);
 
     }
 

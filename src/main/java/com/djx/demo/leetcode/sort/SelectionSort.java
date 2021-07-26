@@ -10,13 +10,49 @@ public class SelectionSort {
 
     public static void main(String[] args) {
 
-        Utils.testSort(100000, SelectionSort::selectionSort);
-        Utils.testSort(100000, SelectionSort::selectionSort);
-        Utils.testSort(100000, SelectionSort::selectionSort);
-        Utils.testSort(100000, SelectionSort::selectionSort);
-        Utils.testSort(100000, SelectionSort::selectionSort);
-        Utils.testSort(100000, SelectionSort::selectionSort);
+//        Utils.testSort(100000, SelectionSort::selectionSort);
+//        Utils.testSort(100000, SelectionSort::selectionSort);
+//        Utils.testSort(100000, SelectionSort::selectionSort);
+//        Utils.testSort(100000, SelectionSort::selectionSort);
+//        Utils.testSort(100000, SelectionSort::selectionSort);
+//        Utils.testSort(100000, SelectionSort::selectionSort);
+//        Utils.testSort(100000, SelectionSort::selectionSort);
+//        Utils.testSort(100000, SelectionSort::selectionSort);
+//        Utils.testSort(100000, SelectionSort::selectionSort);
+//
+
+
+        time(100000);
+        time(100000);
+        time(100000);
+        time(100000);
+        time(100000);
+        time(100000);
+        time(100000);
+        time(100000);
+        time(100000);
+        time(100000);
     }
+
+    public static void time(int size) {
+        long loading = System.currentTimeMillis();
+
+        int[] randomArray = Utils.getRandomArray(size);
+
+        long randomTime = System.currentTimeMillis() - loading;
+
+        System.out.println("数组大小:" + size + ", randomTime耗时 :" + randomTime + "ms");
+
+
+        long start = System.currentTimeMillis();
+
+        selectionSort(randomArray);
+
+        long time = System.currentTimeMillis() - start;
+
+        System.out.println("数组大小:" + size + ", 排序耗时 :" + time + "ms");
+    }
+
 
     public static void selectionSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
@@ -34,8 +70,6 @@ public class SelectionSort {
                 array[index] = temp;
             }
         }
-
-
     }
 
 }
