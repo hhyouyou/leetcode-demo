@@ -1,4 +1,4 @@
-package com.djx.demo.leetcode.everyday;
+package com.djx.demo.leetcode.search;
 
 /**
  * [278]第一个错误的版本
