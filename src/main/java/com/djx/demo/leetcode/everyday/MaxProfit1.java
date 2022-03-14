@@ -11,7 +11,7 @@ public class MaxProfit1 {
 
     public static void main(String[] args) {
 
-        int[] num = {2,4,1};
+        int[] num = {7,6,4,3,1};
 
         int i = maxProfit(num);
         System.out.println(i);
@@ -21,25 +21,15 @@ public class MaxProfit1 {
     public static int maxProfit(int[] prices) {
 
         int min = prices[0];
-        int minIndex = 0;
+        int max = 0;
 
         for (int i = 1; i < prices.length; i++) {
+            max = Math.max(max, prices[i] - min);
 
-            if (min > prices[i]) {
-                min = prices[i];
-                minIndex = i;
-            }
+            min = Math.min(min, prices[i]);
         }
 
-        int max = prices[minIndex];
-
-        for (int i = minIndex; i < prices.length; i++) {
-
-            max = Math.max(max, prices[i]);
-
-        }
-
-        return max - min;
+        return max;
     }
 
 }
