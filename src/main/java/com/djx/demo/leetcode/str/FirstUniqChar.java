@@ -1,8 +1,11 @@
 package com.djx.demo.leetcode.str;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Objects;
 
 /**
+ * [387]字符串中的第一个唯一字符
+ *
  * @author dong jing xi
  * @date 2020/11/25 13:39
  **/
