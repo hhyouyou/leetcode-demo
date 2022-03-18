@@ -1,4 +1,4 @@
-package com.djx.demo.leetcode.everyday;
+package com.djx.demo.leetcode.array;
 
 /**
  * [121]买卖股票的最佳时机

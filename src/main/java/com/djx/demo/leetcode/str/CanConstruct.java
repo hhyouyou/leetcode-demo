@@ -1,4 +1,4 @@
-package com.djx.demo.leetcode.everyday;
+package com.djx.demo.leetcode.str;
 
 import java.util.HashMap;
 
