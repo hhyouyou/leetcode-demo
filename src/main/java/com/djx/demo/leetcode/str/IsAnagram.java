@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Objects;
 
 /**
+ * [242]有效的字母异位词
+ *
  * @author djx
  * @date 2021/6/21 下午2:48
  */
