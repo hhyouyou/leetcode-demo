@@ -23,9 +23,11 @@ public class LongestCommonSubsequence {
             char char1 = text1.charAt(i - 1);
             for (int j = 1; j <= text2.length(); j++) {
                 char char2 = text2.charAt(j - 1);
+                // 如果字符相等， 那么最长公共子序列就是(i-1,j-1)的长度加一
                 if (char1 == char2) {
                     dp[i][j] = dp[i - 1][j - 1] + 1;
                 } else {
+                    // 不相等， 则取(i-1,j) 和 (i,j-1)的最大值
                     dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
                 }
             }
