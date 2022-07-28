@@ -2,7 +2,6 @@ package com.djx.demo.leetcode.sort;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 
 /**
  * day	[1331]数组序号转换	60.3%	Easy	0.0%
@@ -34,23 +33,17 @@ public class ArrayRankTransform {
 
     public int[] arrayRankTransform(int[] arr) {
 
-        // array 转set 去重
-        HashSet<Integer> numSet = new HashSet<>(arr.length);
-        for (int j : arr) {
-            numSet.add(j);
-        }
+        int[] clone = arr.clone();
 
-        // 排序
-        Integer[] sortArray = new Integer[numSet.size()];
-        numSet.toArray(sortArray);
-        quickSort(sortArray, 0, sortArray.length - 1);
+        quickSort(clone, 0, clone.length - 1);
 
 
         // 转map， num-index
-        HashMap<Integer, Integer> numSortMap = new HashMap<>(sortArray.length);
-        for (int i = 0; i < sortArray.length; i++) {
-            if (!numSortMap.containsKey(sortArray[i])) {
-                numSortMap.put(sortArray[i], i + 1);
+        HashMap<Integer, Integer> numSortMap = new HashMap<>(clone.length);
+        int index = 1;
+        for (int j : clone) {
+            if (!numSortMap.containsKey(j)) {
+                numSortMap.put(j, index++);
             }
         }
 
@@ -63,7 +56,7 @@ public class ArrayRankTransform {
     }
 
 
-    public void quickSort(Integer[] arr, int left, int right) {
+    public void quickSort(int[] arr, int left, int right) {
 
         if (left >= right) {
             return;
@@ -82,7 +75,7 @@ public class ArrayRankTransform {
     }
 
 
-    public void swap(Integer[] arr, int left, int right) {
+    public void swap(int[] arr, int left, int right) {
         int tmp = arr[left];
         arr[left] = arr[right];
         arr[right] = tmp;
