@@ -13,6 +13,20 @@ import java.util.List;
  */
 public class SerializeTree {
 
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2, new TreeNode(4, new TreeNode(7), null), new TreeNode(5));
+        root.right = new TreeNode(3, null, new TreeNode(6, null, new TreeNode(8)));
+
+        SerializeTree serializeTree = new SerializeTree();
+        String serialize = serializeTree.serialize(root);
+
+        TreeNode deserialize = serializeTree.deserialize(serialize);
+
+        System.out.println(deserialize);
+
+    }
+
 
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
