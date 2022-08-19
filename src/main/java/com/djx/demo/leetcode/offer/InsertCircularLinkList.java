@@ -1,7 +1,7 @@
 package com.djx.demo.leetcode.offer;
 
 /**
- * [剑指 Offer II 029]排序的循环链表	34.1%	Medium	0.0%
+ * [剑指 Offer II 029]排序的循环链表
  *
  * @author dongjingxi
  * @date 2022/8/2
