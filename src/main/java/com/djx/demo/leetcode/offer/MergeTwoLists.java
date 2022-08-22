@@ -1,7 +1,7 @@
 package com.djx.demo.leetcode.offer;
 
 /**
- * [剑指 Offer 25]合并两个排序的链表	72.7%	Easy	0.0%
+ * [剑指 Offer 25]合并两个排序的链表
  *
  * @author dongjingxi
  * @date 2022/8/1
@@ -20,6 +20,7 @@ public class MergeTwoLists {
 
             ListNode newNode;
 
+            // 哪个小走哪个
             if (l1 != null && l2 != null) {
 
                 if (l1.val < l2.val) {

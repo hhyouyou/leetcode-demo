@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * [剑指 Offer 24]反转链表	74.4%	Easy	0.0%
+ * [剑指 Offer 24]反转链表
  *
  * @author dongjingxi
  * @date 2022/8/1
@@ -24,11 +24,28 @@ public class ReverseList {
         listNode4.next = listNode5;
 
         ReverseList reverseList = new ReverseList();
-        ListNode listNode = reverseList.reverseList(listNode1);
+        ListNode listNode = reverseList.reverseList1(listNode1);
 
         System.out.println(listNode);
     }
 
+    /**
+     * 不适用额外空间
+     */
+    public ListNode reverseList1(ListNode head) {
+
+        ListNode prev = null;
+        ListNode curr = head;
+
+        while (curr != null) {
+            ListNode temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+
+        return prev;
+    }
 
     public ListNode reverseList(ListNode head) {
         Map<Integer, ListNode> nodeIndexMap = new HashMap<>();
@@ -48,8 +65,6 @@ public class ReverseList {
         }
 
         return nodeIndexMap.getOrDefault(index, null);
-
-
     }
 
 

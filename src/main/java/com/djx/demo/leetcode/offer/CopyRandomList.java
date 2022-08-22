@@ -4,12 +4,51 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * [剑指 Offer 35]复杂链表的复制	71.6%	Medium	0.0%
+ * [剑指 Offer 35]复杂链表的复制
  *
  * @author dongjingxi
  * @date 2022/8/1
  */
 public class CopyRandomList {
+
+
+    /**
+     * 方法二 原地复制
+     */
+    public Node copyRandomList2(Node head) {
+
+        if (head == null) {
+            return null;
+        }
+
+        Node tmp = head;
+        while (head != null) {
+            Node newNode = new Node(head.val);
+            newNode.next = head.next;
+            head.next = newNode;
+            head = newNode.next;
+        }
+
+        head = tmp;
+        while (head != null) {
+            if (head.random != null) {
+                head.next.random = head.random.next;
+            }
+            head = head.next.next;
+        }
+
+        head = tmp;
+        Node result = head.next;
+        while (head != null) {
+            Node next = head.next;
+            if (next != null) {
+
+                head.next =next.next;
+            }
+            head = next;
+        }
+        return result;
+    }
 
 
     public Node copyRandomList(Node head) {
