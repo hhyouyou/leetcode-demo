@@ -1,10 +1,18 @@
 package com.djx.demo.leetcode.struct;
 
-//节点
+
 class Node {
     int value = -1;
-    int level;//跨越几层
-    Node[] next;//指向下一个节点
+
+    /**
+     * 跨越几层
+     */
+    int level;
+
+    /**
+     * 指向下一个节点
+     */
+    Node[] next;
 
     public Node(int value, int level) {
         this.value = value;
@@ -13,7 +21,7 @@ class Node {
     }
 }
 
-//跳跃表
+
 public class SkipList {
     //允许的最大层数
     int maxLevel = 16;
@@ -91,7 +99,9 @@ public class SkipList {
         }
     }
 
-    //打印所有节点
+    /**
+     * 打印所有节点
+     */
     public void printAllNode() {
         Node temp = head;
         while (temp.next[0] != null) {

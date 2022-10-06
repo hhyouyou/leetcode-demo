@@ -2,6 +2,7 @@ package com.djx.demo.leetcode.util;
 
 import java.util.Random;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * @author dong jing xi
@@ -42,6 +43,14 @@ public class Utils {
         int[] randomArray = getRandomArray(size);
 
         testSort(randomArray, sortConsumer);
+    }
+
+    public static <T, R> R functionRuntime(Function<T, R> function, T t) {
+        long start = System.currentTimeMillis();
+        R apply = function.apply(t);
+        long time = System.currentTimeMillis() - start;
+        System.out.println("function:" + function.toString() + ", 耗时 :" + time + "ms");
+        return apply;
     }
 
 

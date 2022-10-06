@@ -1,7 +1,5 @@
 package com.djx.demo.leetcode.str;
 
-import org.springframework.cache.annotation.CacheEvict;
-
 /**
  * 字符串转换整数 (atoi)
  * 请你来实现一个atoi函数，使其能将字符串转换成整数。
@@ -26,56 +24,66 @@ public class MyAtoi {
 
     public static void main(String[] args) {
 
-        int num = myAtoi("-91283472332");
+        int num = myAtoi("-+12");
         System.out.println(num);
 
-        Integer.parseInt("num");
 
-    }
-
-    public static void test() {
-        int max = Integer.MAX_VALUE;
-        int min = Integer.MIN_VALUE;
-        System.out.println(max + 1);
-        System.out.println(min - 10);
     }
 
     public static int myAtoi(String s) {
-        if(s.isEmpty()){
-            return 0;
-        }
+        long result = 0;
         int negativeFlag = 1;
 
-        StringBuilder resultStrBuilder = new StringBuilder();
+        s = s.trim();
+
+        char[] chars = s.toCharArray();
+
 
         int i = 0;
-        s = s.trim();
-        if (s.charAt(0) == '-') {
-            negativeFlag = -1;
-            i = 1;
-        }else if (s.charAt(0) == '+') {
-            i = 1;
-        }
-        while (i < s.length() && isNumber(s.charAt(i))) {
-            resultStrBuilder.append(s.charAt(i++));
+        for (; i < chars.length; i++) {
+            char aChar = chars[i];
+            if (!isFlagOrNumber(aChar)) {
+                break;
+            }
         }
 
-        int resultNum = 0;
-        String resultStr = resultStrBuilder.toString();
-        for (int j = resultStr.length() - 1; j >= 0; j--) {
-            int newResult = resultNum + (resultStr.charAt(j) - 48) * negativeFlag;
-            if (resultNum != 0 && (resultNum ^ newResult) >> 31 < 0) {
-                return negativeFlag > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+        if (i > 0 && i < chars.length) {
+            char aChar1 = chars[i - 1];
+            if (aChar1 == '-') {
+                negativeFlag = -1;
             }
-            resultNum = newResult;
-            negativeFlag *= 10;
         }
-        return resultNum;
+
+
+        for (; i < chars.length; i++) {
+            char aChar = chars[i];
+            if (!isNumber(aChar)) {
+                break;
+            }
+            result = result * 10 + (aChar - 48);
+        }
+
+        result = result * negativeFlag;
+        if (result > Integer.MAX_VALUE) {
+            result = Integer.MAX_VALUE;
+        }
+        if (result < Integer.MIN_VALUE) {
+            result = Integer.MIN_VALUE;
+        }
+
+
+        return Math.toIntExact(result);
     }
 
     public static boolean isNumber(char ch) {
         return ch >= 48 && ch <= 57;
     }
+
+
+    public static boolean isFlagOrNumber(char ch) {
+        return (ch >= 48 && ch <= 57) || (ch == '-' || ch == '+');
+    }
+
 
     public static int isCrossBorder(int oldNumber, int newNumber) {
         return (oldNumber ^ newNumber) >> 31;
