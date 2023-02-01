@@ -21,6 +21,7 @@ public class CopyRandomList {
             return null;
         }
 
+        // 在每个节点后面插一个新的
         Node tmp = head;
         while (head != null) {
             Node newNode = new Node(head.val);
@@ -32,17 +33,20 @@ public class CopyRandomList {
         head = tmp;
         while (head != null) {
             if (head.random != null) {
+                // head.random = head的random指向的节点
+                // head.random.next = head的random指向的节点后面跟的那个新节点
                 head.next.random = head.random.next;
             }
+            // 跳着走，只走原节点
             head = head.next.next;
         }
 
+        // 剪除原节点
         head = tmp;
         Node result = head.next;
         while (head != null) {
             Node next = head.next;
             if (next != null) {
-
                 head.next =next.next;
             }
             head = next;
@@ -54,7 +58,7 @@ public class CopyRandomList {
     public Node copyRandomList(Node head) {
 
         Map<Node, Node> nodeMap = new HashMap<>();
-
+        // 建立节点
         Node node = head;
         while (head != null) {
             Node newNode = new Node(head.val);
@@ -64,6 +68,7 @@ public class CopyRandomList {
 
         head = node;
 
+        // 建立引用关系
         while (head != null) {
 
             Node next = head.next;
