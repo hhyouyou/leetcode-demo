@@ -27,6 +27,7 @@ public class SearchNumber {
         int right = nums.length - 1;
         int targetIndex = -1;
 
+        // 二分查找目标
         while (left <= right) {
             int mid = (left + right) / 2;
 
@@ -46,12 +47,14 @@ public class SearchNumber {
 
         int count = 1;
 
+        // 这个数字左边还有多少个
         for (int i = targetIndex - 1; i >= 0; i--) {
             if (nums[i] == target) {
                 count = count + 1;
             }
         }
 
+        // 这个数字右边还有多少个
         for (int i = targetIndex + 1; i < nums.length; i++) {
             if (nums[i] == target) {
                 count = count + 1;
@@ -119,7 +122,9 @@ public class SearchNumber {
         while (left <= right) {
             int mid = (left + right) / 2;
 
+            // 如果mid值和下标一致，　说明前面没少值
             if (nums[mid] == mid) {
+                // 记录该值
                 max = Math.max(mid, max);
                 left = mid + 1;
             } else {
