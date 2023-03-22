@@ -2,6 +2,7 @@ package com.djx.demo.leetcode.offer;
 
 /**
  * [剑指 Offer II 009]乘积小于 K 的子数组
+ * 滑动窗口
  *
  * @author dongjingxi
  * @date 2022/8/22
